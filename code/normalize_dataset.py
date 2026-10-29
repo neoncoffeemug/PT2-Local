@@ -70,5 +70,3 @@ df_masked['FERIADO'] = df_masked.apply(lambda row: holiday(row['DIA'], row['MES'
 
 # Cria um dataset novo com as mudanças
 df_masked.to_csv("../datasets/normalized_dataset.csv", index=False, encoding="utf-8")
-
-print("ok")

@@ -2,12 +2,14 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
-rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, random_state=42, n_jobs=-1)
-
-df_sertaozinho = pd.read_csv("../dataset/normalized_dataset.csv", sep=",")
+rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, random_state=42, n_jobs=-1, class_weight="balanced")
+df_sertaozinho = pd.read_csv("../datasets/normalized_dataset.csv", sep=",")
 
 df_sertaozinho = df_sertaozinho[df_sertaozinho['NOME_MUNICIPIO'] == 'sertaozinho'].copy()
 features = ['MES', 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+
+# LIDAR COM NULLS
+df_sertaozinho.dropna(subset = ['DESC_PERIODO'], inplace=True)
 
 X = df_sertaozinho[features].copy()
 y = df_sertaozinho['DESC_PERIODO'].copy()
@@ -32,16 +34,14 @@ Xtest = Xtest.reindex(columns=Xtrain.columns, fill_value=0)
 ytrain = y.loc[train_mask].copy()
 ytest = y.loc[test_mask].copy()
 
-print("training: ", Xtrain.shape)
-print("test: ", Xtest.shape)
+print("Training: ", Xtrain.shape)
+print("Test: ", Xtest.shape)
 
-print(ytrain.value_counts())
-print(ytest.value_counts())
- 
-# rf.fit(Xtrain, ytrain)
-# ypred = rf.predict(Xtest)
-# print(classification_report(ytest, ypred, zero_division=0))
+print("\n",ytrain.value_counts())
+print("\n",ytest.value_counts())
 
-print(df_sertaozinho['DESC_PERIODO'].value_counts(dropna=False))
+rf.fit(Xtrain, ytrain)
+ypred = rf.predict(Xtest)
+print("\n", classification_report(ytest, ypred, zero_division=0))
 
-print("\n ok")
+print("\n INBALANCED, DROP NULLS, RF")

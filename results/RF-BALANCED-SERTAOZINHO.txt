@@ -1,0 +1,30 @@
+Training:  (1191, 53)
+Test:  (623, 53)
+
+ DESC_PERIODO
+pela manha      361
+a tarde         353
+a noite         349
+de madrugada    128
+Name: count, dtype: int64
+
+ DESC_PERIODO
+a noite         201
+a tarde         174
+pela manha      167
+de madrugada     81
+Name: count, dtype: int64
+
+               precision    recall  f1-score   support
+
+     a noite       0.40      0.53      0.46       201
+     a tarde       0.31      0.19      0.23       174
+de madrugada       0.24      0.35      0.29        81
+  pela manha       0.37      0.31      0.34       167
+
+    accuracy                           0.35       623
+   macro avg       0.33      0.34      0.33       623
+weighted avg       0.35      0.35      0.34       623
+
+
+ BALANCED, DROP NULLS, RF
