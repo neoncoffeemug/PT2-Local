@@ -1,0 +1,59 @@
+Treino:  (1814, 55)
+Teste:  (1904, 55)
+
+Treino:
+DESC_PERIODO
+a noite         550
+pela manha      528
+a tarde         527
+de madrugada    209
+Name: count, dtype: int64
+
+Teste:
+DESC_PERIODO
+a tarde         578
+pela manha      540
+a noite         525
+de madrugada    261
+Name: count, dtype: int64
+              precision    recall  f1-score   support
+
+     a noite       0.33      0.28      0.30       525
+     a tarde       0.35      0.31      0.32       578
+de madrugada       0.19      0.34      0.24       261
+  pela manha       0.32      0.28      0.30       540
+
+    accuracy                           0.30      1904
+   macro avg       0.30      0.30      0.29      1904
+weighted avg       0.31      0.30      0.30      1904
+
+Município de treinamento: Sertãozinho
+Município de teste: Birigui
+Meses de treinamento: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+Meses de teste: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+Variáveis utilizadas: ['MES', 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+
+Parâmetros do Random Forest:
+bootstrap: True
+ccp_alpha: 0.0
+class_weight: balanced
+criterion: gini
+max_depth: None
+max_features: sqrt
+max_leaf_nodes: None
+max_samples: None
+min_impurity_decrease: 0.0
+min_samples_leaf: 5
+min_samples_split: 2
+min_weight_fraction_leaf: 0.0
+monotonic_cst: None
+n_estimators: 100
+n_jobs: -1
+oob_score: False
+random_state: None
+verbose: 0
+warm_start: False
+
+Registros de treinamento: 1814
+Registros de teste: 1904
