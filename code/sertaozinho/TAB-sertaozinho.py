@@ -3,7 +3,7 @@ from sklearn.metrics import classification_report
 from tabpfn import TabPFNClassifier
 from tabpfn.constants import ModelVersion
 
-tab = TabPFNClassifier.create_default_for_version(ModelVersion.V3_5_FAST, device="cpu", random_state=42)
+tab = TabPFNClassifier.create_default_for_version(ModelVersion.V3_5_FAST, device="cpu", random_state=42, balance_probabilities=True)
 
 df_sertaozinho = pd.read_csv("../../datasets/normalized_dataset.csv", sep=",")
 
@@ -54,7 +54,7 @@ print("Meses de teste:", sorted(df_sertaozinho.loc[test_mask, 'MES'].unique()))
 
 print("\nVariáveis utilizadas:", features)
 
-print("\nParâmetros do Random Forest:")
+print("\nParâmetros do TABPFN:")
 for parametro, valor in tab.get_params().items():
     print(f"{parametro}: {valor}")
 
