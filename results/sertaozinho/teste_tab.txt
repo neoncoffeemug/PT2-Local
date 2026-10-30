@@ -1,0 +1,62 @@
+Training:  (1384, 54)
+Test:  (430, 54)
+
+ DESC_PERIODO
+pela manha      413
+a noite         410
+a tarde         409
+de madrugada    152
+Name: count, dtype: int64
+
+ DESC_PERIODO
+a noite         140
+a tarde         118
+pela manha      115
+de madrugada     57
+Name: count, dtype: int64
+
+               precision    recall  f1-score   support
+
+     a noite       0.35      0.76      0.48       140
+     a tarde       0.29      0.05      0.09       118
+de madrugada       0.00      0.00      0.00        57
+  pela manha       0.41      0.38      0.40       115
+
+    accuracy                           0.37       430
+   macro avg       0.26      0.30      0.24       430
+weighted avg       0.30      0.37      0.29       430
+
+Município de treinamento: Sertãozinho
+Município de teste: Sertãozinho
+Meses de treinamento: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]
+Meses de teste: [np.int64(10), np.int64(11), np.int64(12)]
+
+Variáveis utilizadas: ['DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL', 'MES']
+
+Parâmetros do Random Forest:
+auto_scale_n_estimators: True
+average_before_softmax: False
+balance_probabilities: False
+categorical_features_indices: None
+device: cpu
+differentiable_input: False
+enable_torch_compile: False
+eval_metric: None
+fit_mode: fit_preprocessors
+ignore_pretraining_limits: False
+inference_config: None
+inference_precision: auto
+keep_cache_on_device: True
+kv_cache_precision: None
+memory_saving_mode: auto
+model_path: /home/rigon/.cache/tabpfn/tabpfn-v3.5-fast-20260909.safetensors
+n_estimators: auto
+n_jobs: None
+n_preprocessing_jobs: 1
+random_state: 42
+show_progress_bar: False
+softmax_temperature: auto
+tuning_config: None
+
+Registros de treinamento: 1384
+Registros de teste: 430

@@ -1,0 +1,63 @@
+Treino:  (1384, 54)
+Teste:  (477, 54)
+
+Treino:
+DESC_PERIODO
+pela manha      413
+a noite         410
+a tarde         409
+de madrugada    152
+Name: count, dtype: int64
+
+Teste:
+DESC_PERIODO
+a noite         143
+pela manha      131
+a tarde         128
+de madrugada     75
+Name: count, dtype: int64
+Fit transform...
+Previous covariance difference: 0.001990
+New covariance difference: 0.000043
+Fit Estimator...
+              precision    recall  f1-score   support
+
+     a noite       0.00      0.00      0.00       143
+     a tarde       0.22      0.05      0.08       128
+de madrugada       0.00      0.00      0.00        75
+  pela manha       0.28      0.97      0.44       131
+
+    accuracy                           0.28       477
+   macro avg       0.13      0.25      0.13       477
+weighted avg       0.14      0.28      0.14       477
+
+Município de treinamento: Sertãozinho
+Município de teste: Birigui
+Meses de treinamento: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]
+Meses de teste: [np.int64(10), np.int64(11), np.int64(12)]
+
+Variáveis utilizadas: ['MES', 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+
+Parâmetros do Random Forest:
+bootstrap: True
+ccp_alpha: 0.0
+class_weight: None
+criterion: gini
+max_depth: None
+max_features: sqrt
+max_leaf_nodes: None
+max_samples: None
+min_impurity_decrease: 0.0
+min_samples_leaf: 5
+min_samples_split: 2
+min_weight_fraction_leaf: 0.0
+monotonic_cst: None
+n_estimators: 100
+n_jobs: -1
+oob_score: False
+random_state: 42
+verbose: 0
+warm_start: False
+
+Registros de treinamento: 1384
+Registros de teste: 477
