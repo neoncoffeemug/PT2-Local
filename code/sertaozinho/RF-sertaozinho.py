@@ -6,7 +6,7 @@ rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, random_state=4
 df_sertaozinho = pd.read_csv("../../datasets/normalized_dataset.csv", sep=",")
 
 df_sertaozinho = df_sertaozinho[df_sertaozinho['NOME_MUNICIPIO'] == 'sertaozinho'].copy()
-features = [ 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+features = [ 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL', 'MES']
 
 # LIDAR COM NULLS
 df_sertaozinho.dropna(subset = ['DESC_PERIODO'], inplace=True)

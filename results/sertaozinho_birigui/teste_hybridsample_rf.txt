@@ -1,0 +1,65 @@
+
+===== VERIFICAÇÃO DOS CONJUNTOS =====
+Treinamento original: (1384, 54)
+Treinamento balanceado: (1350, 54)
+Teste: (477, 54)
+
+Distribuição original:
+DESC_PERIODO
+pela manha      413
+a noite         410
+a tarde         409
+de madrugada    152
+Name: count, dtype: int64
+
+Distribuição balanceada:
+DESC_PERIODO
+a noite         350
+a tarde         350
+pela manha      350
+de madrugada    300
+Name: count, dtype: int64
+
+Meses presentes no treinamento:
+[1 2 3 4 5 6 7 8 9]
+
+Meses presentes no teste:
+[10 11 12]
+              precision    recall  f1-score   support
+
+     a noite       0.38      0.43      0.41       143
+     a tarde       0.34      0.37      0.35       128
+de madrugada       0.20      0.28      0.23        75
+  pela manha       0.20      0.11      0.14       131
+
+    accuracy                           0.30       477
+   macro avg       0.28      0.30      0.28       477
+weighted avg       0.29      0.30      0.29       477
+
+Município de treinamento: Sertãozinho
+Município de teste: Birigui
+Meses de treinamento: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Meses de teste: [10, 11, 12]
+
+Variáveis utilizadas: ['MES', 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+
+Parâmetros do Random Forest:
+bootstrap: True
+ccp_alpha: 0.0
+class_weight: None
+criterion: gini
+max_depth: None
+max_features: sqrt
+max_leaf_nodes: None
+max_samples: None
+min_impurity_decrease: 0.0
+min_samples_leaf: 5
+min_samples_split: 2
+min_weight_fraction_leaf: 0.0
+monotonic_cst: None
+n_estimators: 100
+n_jobs: -1
+oob_score: False
+random_state: None
+verbose: 0
+warm_start: False

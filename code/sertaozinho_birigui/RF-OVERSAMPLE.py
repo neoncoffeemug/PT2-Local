@@ -1,12 +1,10 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
+from imblearn.over_sampling import RandomOverSampler
 
-# Texto no final do teste que explica as escolhas/testes usados
-pipeline_specifics = ""
-
-
-rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, n_jobs=-1, class_weight="balanced")
+rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, n_jobs=-1)
+ros = RandomOverSampler(sampling_strategy={'de madrugada': 300}, random_state=42)
 
 df = pd.read_csv("../../datasets/normalized_dataset.csv", sep=",")
 df_sertaozinho = df[df['NOME_MUNICIPIO'] == 'sertaozinho'].copy()
@@ -39,16 +37,27 @@ Xtrain = pd.get_dummies(Xtrain, columns=categorical_cols, dtype=int)
 Xtest = pd.get_dummies(Xtest, columns=categorical_cols, dtype=int)
 Xtest = Xtest.reindex(columns=Xtrain.columns, fill_value=0)
 
-print("Treino: ", Xtrain.shape)
-print("Teste: ", Xtest.shape)
+X_res, y_res = ros.fit_resample(Xtrain, ytrain)
 
-print("\nTreino:")
+print("\n===== VERIFICAÇÃO DOS CONJUNTOS =====")
+
+print("Treinamento original:", Xtrain.shape)
+print("Treinamento balanceado:", X_res.shape)
+print("Teste:", Xtest.shape)
+
+print("\nDistribuição original:")
 print(ytrain.value_counts())
 
-print("\nTeste:")
-print(ytest.value_counts())
+print("\nDistribuição balanceada:")
+print(y_res.value_counts())
 
-rf.fit(Xtrain, ytrain)
+print("\nMeses presentes no treinamento:")
+print(Xtrain['MES'].unique())
+
+print("\nMeses presentes no teste:")
+print(Xtest['MES'].unique())
+
+rf.fit(X_res, y_res)
 ypred = rf.predict(Xtest)
 
 print(classification_report(ytest, ypred, zero_division=0))
@@ -64,6 +73,3 @@ print("\nVariáveis utilizadas:", features)
 print("\nParâmetros do Random Forest:")
 for parametro, valor in rf.get_params().items():
     print(f"{parametro}: {valor}")
-
-print("\nRegistros de treinamento:", len(Xtrain))
-print("Registros de teste:", len(Xtest))
