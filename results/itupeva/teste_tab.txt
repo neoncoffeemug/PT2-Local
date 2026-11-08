@@ -1,0 +1,62 @@
+Training:  (613, 43)
+Test:  (196, 43)
+
+ DESC_PERIODO
+a tarde         213
+a noite         203
+pela manha      121
+de madrugada     76
+Name: count, dtype: int64
+
+ DESC_PERIODO
+a tarde         67
+a noite         60
+pela manha      49
+de madrugada    20
+Name: count, dtype: int64
+
+               precision    recall  f1-score   support
+
+     a noite       0.29      0.15      0.20        60
+     a tarde       0.41      0.30      0.34        67
+de madrugada       0.21      0.45      0.29        20
+  pela manha       0.27      0.41      0.33        49
+
+    accuracy                           0.30       196
+   macro avg       0.30      0.33      0.29       196
+weighted avg       0.32      0.30      0.29       196
+
+Município de treinamento: Itupeva
+Município de teste: Itupeva
+Meses de treinamento: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]
+Meses de teste: [np.int64(10), np.int64(11), np.int64(12)]
+
+Variáveis utilizadas: ['DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL', 'MES']
+
+Parâmetros do TABPFN:
+auto_scale_n_estimators: True
+average_before_softmax: False
+balance_probabilities: True
+categorical_features_indices: None
+device: cpu
+differentiable_input: False
+enable_torch_compile: False
+eval_metric: None
+fit_mode: fit_preprocessors
+ignore_pretraining_limits: False
+inference_config: None
+inference_precision: auto
+keep_cache_on_device: True
+kv_cache_precision: None
+memory_saving_mode: auto
+model_path: auto
+n_estimators: auto
+n_jobs: None
+n_preprocessing_jobs: 1
+random_state: 42
+show_progress_bar: False
+softmax_temperature: auto
+tuning_config: None
+
+Registros de treinamento: 613
+Registros de teste: 196
