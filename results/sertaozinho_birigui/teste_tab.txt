@@ -1,0 +1,63 @@
+Treino:  (1384, 54)
+Teste:  (477, 54)
+
+Treino:
+DESC_PERIODO
+pela manha      413
+a noite         410
+a tarde         409
+de madrugada    152
+Name: count, dtype: int64
+
+Teste:
+DESC_PERIODO
+a noite         143
+pela manha      131
+a tarde         128
+de madrugada     75
+Name: count, dtype: int64
+              precision    recall  f1-score   support
+
+     a noite       0.34      0.36      0.35       143
+     a tarde       0.26      0.12      0.17       128
+de madrugada       0.27      0.49      0.35        75
+  pela manha       0.30      0.29      0.30       131
+
+    accuracy                           0.30       477
+   macro avg       0.29      0.32      0.29       477
+weighted avg       0.30      0.30      0.29       477
+
+Município de treinamento: Sertãozinho
+Município de teste: Birigui
+Meses de treinamento: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]
+Meses de teste: [np.int64(10), np.int64(11), np.int64(12)]
+
+Variáveis utilizadas: ['MES', 'DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL']
+
+Parâmetros do TABPFN:
+auto_scale_n_estimators: True
+average_before_softmax: False
+balance_probabilities: True
+categorical_features_indices: None
+device: cpu
+differentiable_input: False
+enable_torch_compile: False
+eval_metric: None
+fit_mode: fit_preprocessors
+ignore_pretraining_limits: False
+inference_config: None
+inference_precision: auto
+keep_cache_on_device: True
+kv_cache_precision: None
+memory_saving_mode: auto
+model_path: /home/lucas/.cache/tabpfn/tabpfn-v3.5-fast-20260909.safetensors
+n_estimators: auto
+n_jobs: None
+n_preprocessing_jobs: 1
+random_state: 42
+show_progress_bar: False
+softmax_temperature: auto
+tuning_config: None
+
+Registros de treinamento: 1384
+Registros de teste: 477

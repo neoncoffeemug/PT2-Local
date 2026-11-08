@@ -1,7 +1,9 @@
 import pandas as pd
-from sklearn.metrics import classification_report
+import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 from tabpfn import TabPFNClassifier
 from tabpfn.constants import ModelVersion
+
 
 tab = TabPFNClassifier.create_default_for_version(ModelVersion.V3_5_FAST, device="cpu", random_state=42, balance_probabilities=True)
 
@@ -60,3 +62,10 @@ for parametro, valor in tab.get_params().items():
 
 print("\nRegistros de treinamento:", len(Xtrain))
 print("Registros de teste:", len(Xtest))
+
+labels = ['a noite', 'a tarde', 'de madrugada', 'pela manha']
+
+cm = confusion_matrix(ytest, ypred, labels=labels)
+ConfusionMatrixDisplay.from_predictions(ytest, ypred, xticks_rotation=45)
+
+plt.show()

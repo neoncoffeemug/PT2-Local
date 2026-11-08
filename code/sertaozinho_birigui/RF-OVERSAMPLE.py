@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from imblearn.over_sampling import RandomOverSampler
@@ -73,3 +74,4 @@ print("\nVariáveis utilizadas:", features)
 print("\nParâmetros do Random Forest:")
 for parametro, valor in rf.get_params().items():
     print(f"{parametro}: {valor}")
+

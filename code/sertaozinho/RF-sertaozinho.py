@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 rf = RandomForestClassifier(n_estimators=100, min_samples_leaf=5, random_state=42, n_jobs=-1, class_weight="balanced")
 df_sertaozinho = pd.read_csv("../../datasets/normalized_dataset.csv", sep=",")
@@ -58,3 +59,8 @@ for parametro, valor in rf.get_params().items():
 
 print("\nRegistros de treinamento:", len(Xtrain))
 print("Registros de teste:", len(Xtest))
+
+labels = ['a noite', 'a tarde', 'de madrugada', 'pela manha']
+
+cm = confusion_matrix(ytest, ypred, labels=labels)
+

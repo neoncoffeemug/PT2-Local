@@ -1,0 +1,79 @@
+=======================================================
+Modelo 1: Sertãozinho -> Itupeva
+=======================================================
+Treino: (1384, 55)
+Teste: (196, 55)
+
+Distribuição do treino:
+DESC_PERIODO
+pela manha      413
+a noite         410
+a tarde         409
+de madrugada    152
+Name: count, dtype: int64
+
+Distribuição do teste:
+DESC_PERIODO
+a tarde         67
+a noite         60
+pela manha      49
+de madrugada    20
+Name: count, dtype: int64
+
+Classification report:
+              precision    recall  f1-score   support
+
+     a noite       0.30      0.58      0.40        60
+     a tarde       0.50      0.12      0.19        67
+de madrugada       0.00      0.00      0.00        20
+  pela manha       0.30      0.39      0.34        49
+
+    accuracy                           0.32       196
+   macro avg       0.27      0.27      0.23       196
+weighted avg       0.34      0.32      0.27       196
+
+Accuracy: 0.3163265306122449
+Macro F1: 0.23169538572633253
+
+
+=======================================================
+Modelo 2: Sertãozinho + Birigui -> Itupeva
+=======================================================
+Treino: (2811, 57)
+Teste: (196, 57)
+
+Distribuição do treino:
+DESC_PERIODO
+a tarde         859
+pela manha      822
+a noite         792
+de madrugada    338
+Name: count, dtype: int64
+
+Distribuição do teste:
+DESC_PERIODO
+a tarde         67
+a noite         60
+pela manha      49
+de madrugada    20
+Name: count, dtype: int64
+
+Classification report:
+              precision    recall  f1-score   support
+
+     a noite       0.31      0.58      0.40        60
+     a tarde       0.45      0.33      0.38        67
+de madrugada       0.00      0.00      0.00        20
+  pela manha       0.26      0.18      0.22        49
+
+    accuracy                           0.34       196
+   macro avg       0.26      0.27      0.25       196
+weighted avg       0.31      0.34      0.31       196
+
+Accuracy: 0.336734693877551
+Macro F1: 0.2502005230409379
+
+COMPARAÇÃO FINAL
+                               Experimento  Accuracy  Macro F1  Registros treino  Registros teste
+          Modelo 1: Sertãozinho -> Itupeva  0.316327  0.231695              1384              196
+Modelo 2: Sertãozinho + Birigui -> Itupeva  0.336735  0.250201              2811              196

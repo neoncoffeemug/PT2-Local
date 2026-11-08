@@ -1,0 +1,58 @@
+Training:  (1427, 53)
+Test:  (477, 53)
+
+ DESC_PERIODO
+a tarde         450
+pela manha      409
+a noite         382
+de madrugada    186
+Name: count, dtype: int64
+
+ DESC_PERIODO
+a noite         143
+pela manha      131
+a tarde         128
+de madrugada     75
+Name: count, dtype: int64
+
+               precision    recall  f1-score   support
+
+     a noite       0.41      0.18      0.25       143
+     a tarde       0.34      0.25      0.29       128
+de madrugada       0.24      0.49      0.32        75
+  pela manha       0.36      0.44      0.40       131
+
+    accuracy                           0.32       477
+   macro avg       0.33      0.34      0.31       477
+weighted avg       0.35      0.32      0.31       477
+
+Município de treinamento: Sertãozinho
+Município de teste: Sertãozinho
+Meses de treinamento: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]
+Meses de teste: [np.int64(10), np.int64(11), np.int64(12)]
+
+Variáveis utilizadas: ['DIA_SEM', 'FERIADO', 'RUBRICA', 'DESCR_TIPOLOCAL', 'MES']
+
+Parâmetros do Random Forest:
+bootstrap: True
+ccp_alpha: 0.0
+class_weight: balanced
+criterion: gini
+max_depth: None
+max_features: sqrt
+max_leaf_nodes: None
+max_samples: None
+min_impurity_decrease: 0.0
+min_samples_leaf: 5
+min_samples_split: 2
+min_weight_fraction_leaf: 0.0
+monotonic_cst: None
+n_estimators: 100
+n_jobs: -1
+oob_score: False
+random_state: 42
+verbose: 0
+warm_start: False
+
+Registros de treinamento: 1427
+Registros de teste: 477
