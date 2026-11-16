@@ -17,9 +17,9 @@ categorical_cols = ['DIA_SEM', 'RUBRICA', 'DESCR_TIPOLOCAL']
 df_sertaozinho.dropna(subset = ['DESC_PERIODO'], inplace=True)
 df_birigui.dropna(subset = ['DESC_PERIODO'], inplace=True)
 
-train_mask = df_sertaozinho['MES'] <= 9
-train_adapt = df_birigui['MES'] <= 9
-test_mask = df_birigui['MES'] > 9
+train_mask = df_sertaozinho['MES'] <= 12
+train_adapt = df_birigui['MES'] <= 12
+test_mask = df_birigui['MES'] <= 12
 
 Xtrain = df_sertaozinho.loc[train_mask, features].copy()
 ytrain = df_sertaozinho.loc[train_mask, 'DESC_PERIODO'].copy()

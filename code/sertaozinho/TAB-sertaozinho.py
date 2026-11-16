@@ -26,8 +26,8 @@ for col in categorical_cols:
 X['MES'] = X['MES'].astype(int)
 X['FERIADO'] = X['FERIADO'].astype(int)
 
-train_mask = df_sertaozinho['MES'] <= 9
-test_mask = df_sertaozinho['MES'] > 9
+train_mask = df_sertaozinho['MES'] <= 12
+test_mask = df_sertaozinho['MES'] <= 12
 
 Xtrain = X.loc[train_mask].copy()
 Xtest = X.loc[test_mask].copy()
@@ -69,3 +69,56 @@ cm = confusion_matrix(ytest, ypred, labels=labels)
 ConfusionMatrixDisplay.from_predictions(ytest, ypred, xticks_rotation=45)
 
 plt.show()
+
+features = [
+    'DIA_SEM',
+    'FERIADO',
+    'RUBRICA',
+    'DESCR_TIPOLOCAL',
+    'MES'
+]
+
+df = df_sertaozinho.copy()
+
+df['DESC_PERIODO'] = df['DESC_PERIODO'].replace(
+    ['nan', 'NaN', 'None', ''], pd.NA
+)
+
+df = df.dropna(subset=['DESC_PERIODO'])
+
+groups = df.groupby(features, dropna=False)['DESC_PERIODO']
+
+# Number of distinct target classes for each feature combination
+unique_targets = groups.nunique()
+
+# Number of observations for each feature combination
+group_sizes = groups.size()
+
+# Percentage of observations belonging to ambiguous combinations
+ambiguous_rows = group_sizes[unique_targets > 1].sum()
+
+print("Observações totais:", len(df))
+print("Observações em combinações ambíguas:", ambiguous_rows)
+
+print(
+    "Percentual de observações ambíguas:",
+    round(ambiguous_rows / len(df) * 100, 2)
+)
+
+# Empirical maximum accuracy from assigning the most common
+# label to every distinct feature combination
+counts = (
+    df.groupby(features + ['DESC_PERIODO'], dropna=False)
+      .size()
+)
+
+max_correct = (
+    counts.groupby(level=list(range(len(features))))
+          .max()
+          .sum()
+)
+
+print(
+    "Acurácia máxima empírica por combinação:",
+    round(max_correct / len(df) * 100, 2)
+)

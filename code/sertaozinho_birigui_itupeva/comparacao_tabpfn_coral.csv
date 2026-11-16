@@ -1,0 +1,5 @@
+Experimento,CORAL,Accuracy,Macro F1,Registros treino,Registros teste
+Modelo 1: Sertãozinho -> Itupeva,False,0.23979591836734693,0.22276624054525335,1384,196
+Modelo 2: Sertãozinho + Birigui -> Itupeva,False,0.23469387755102042,0.2349021592442645,2811,196
+Modelo 3: Sertãozinho -> Itupeva + CORAL,True,0.1989795918367347,0.1398929049531459,1384,196
+Modelo 4: Sertãozinho + Birigui -> Itupeva + CORAL,True,0.25,0.1012396694214876,2811,196
